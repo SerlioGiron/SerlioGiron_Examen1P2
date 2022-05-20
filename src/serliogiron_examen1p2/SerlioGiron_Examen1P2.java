@@ -60,7 +60,7 @@ static ArrayList <PC> PCs = new ArrayList();
                                 System.out.println("");
                                 System.out.println("0. Salir\n"
                                         + "1. PC_Escritorio\n"
-                                        + "2.  Laptop\n");
+                                        + "2. Laptop\n");
                                 System.out.print("Ingrese una Opción: ");
                                 int menu3 = lea.nextInt();
                                 System.out.println();
@@ -73,6 +73,41 @@ static ArrayList <PC> PCs = new ArrayList();
                                     String mascara = "255.255.";
                                     System.out.print("Mascara de red: " + mascara);
                                     mascara += lea.next();
+                                    
+                                    //255, 254, 252, 248, 240, 224, 192, 128, 0
+                                    
+                                    String [] mask = mascara.split("\\.");
+                                    
+                                    while ((!(mask[2]).equals("255")  &&  
+                                            !(mask[2]).equals("254")  &&  
+                                            !(mask[2]).equals("252")  && 
+                                            !(mask[2]).equals("248")  && 
+                                            !(mask[2]).equals("240")  &&  
+                                            !(mask[2]).equals("224")  &&
+                                            !(mask[2]).equals("192")  &&
+                                            !(mask[2]).equals("128")  &&
+                                            !(mask[2]).equals("0")) ||
+                                            
+                                            (!(mask[3]).equals("255") &&
+                                            !(mask[3]).equals("254")  &&  
+                                            !(mask[3]).equals("252")  && 
+                                            !(mask[3]).equals("248")  && 
+                                            !(mask[3]).equals("240")  &&  
+                                            !(mask[3]).equals("224")  &&
+                                            !(mask[3]).equals("192")  &&
+                                            !(mask[3]).equals("128")  &&
+                                            !(mask[3]).equals("0")))
+                                    {                                        
+                                        System.out.println("");
+                                        System.out.println("Ingrese un numero valido");
+                                        System.out.println("");
+                                        
+                                        mascara = "255.255.";
+                                        System.out.print("Mascara de red: " + mascara);
+                                        mascara += lea.next();
+                                        
+                                        mask = mascara.split("\\.");
+                                    }
 
                                     System.out.print("Hostname: ");
                                     String hostname = lea.next();
@@ -128,6 +163,41 @@ static ArrayList <PC> PCs = new ArrayList();
                                     String mascara = "255.255.";
                                     System.out.print("Mascara de red: " + mascara);
                                     mascara += lea.next();
+                                    
+                                    //255, 254, 252, 248, 240, 224, 192, 128, 0
+                                    
+                                    String [] mask = mascara.split("\\.");
+                                    
+                                    while (!(mask[2]).equals("255")   &&  
+                                            !(mask[2]).equals("254")  &&  
+                                            !(mask[2]).equals("252")  && 
+                                            !(mask[2]).equals("248")  && 
+                                            !(mask[2]).equals("240")  &&  
+                                            !(mask[2]).equals("224")  &&
+                                            !(mask[2]).equals("192")  &&
+                                            !(mask[2]).equals("128")  &&
+                                            !(mask[2]).equals("0")    &&
+                                            
+                                            !(mask[3]).equals("255")  &&
+                                            !(mask[3]).equals("254")  &&  
+                                            !(mask[3]).equals("252")  && 
+                                            !(mask[3]).equals("248")  && 
+                                            !(mask[3]).equals("240")  &&  
+                                            !(mask[3]).equals("224")  &&
+                                            !(mask[3]).equals("192")  &&
+                                            !(mask[3]).equals("128")  &&
+                                            !(mask[3]).equals("0")    ) 
+                                    {                                        
+                                        System.out.println("");
+                                        System.out.println("Ingrese numeros validos");
+                                        System.out.println("");
+                                        
+                                        mascara = "255.255.";
+                                        System.out.print("Mascara de red: " + mascara);
+                                        mascara += lea.next();
+                                        
+                                        mask = mascara.split("\\.");
+                                    }
 
                                     System.out.print("Hostname: ");
                                     String hostname = lea.next();
@@ -217,14 +287,31 @@ static ArrayList <PC> PCs = new ArrayList();
                             System.out.print(seleccionada.getHostname() + "#");
                             p = lea.next();
                             
+                           
+                            
                             if (p.equals("show")) 
                             {
                                 System.out.println("ip = " + seleccionada.getIp());
                                 System.out.println("mask = " + seleccionada.getMascara());
                             }
-                            else if(p.equals("ping"))
+                            else 
                             {
+                                String [] tok = p.split("_");
                                 
+                                if (tok[0].equals("ping")) 
+                                {
+                                    String maskbinarioselected = seleccionada.getMaskbin();
+                                    
+                                    int cont = 0;
+                                    
+                                    for (int i = 0; i < maskbinarioselected.length(); i++) 
+                                    {
+                                        if (maskbinarioselected.charAt(i) == '1') 
+                                        {
+                                            cont++;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
