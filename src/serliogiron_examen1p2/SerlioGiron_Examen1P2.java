@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class SerlioGiron_Examen1P2 {
 static Scanner lea = new Scanner(System.in);
 static Random random = new Random();
+static PC seleccionada = new PC();
 
 static ArrayList <PC> PCs = new ArrayList();
     /**
@@ -190,7 +191,21 @@ static ArrayList <PC> PCs = new ArrayList();
 
                 case 2: 
                 {
-                    
+                    if (PCs.isEmpty()) {
+                        System.out.println("No hay PCs");
+                    }
+                    else
+                    {
+                        imprimirarray(PCs);
+                        System.out.print("Ingrese la PC a la que desea entrar: ");
+                        int select = lea.nextInt();
+
+                        seleccionada = PCs.get(select);
+
+                        System.out.println("");
+                        System.out.print(seleccionada.getHostname() + "#");
+                        String p = lea.next();
+                    }
                     break;
                 }//fin case 2
             } // fin switch menu
