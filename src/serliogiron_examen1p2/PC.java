@@ -14,6 +14,7 @@ public class PC {
     private String mascara;
     private String hostname;
     private String ipbin;
+    private String maskbin;
 
     public PC() {
     }
@@ -26,8 +27,22 @@ public class PC {
         String [] tokens = ip.split("\\.");
         
         this.ipbin = bin(Integer.parseInt(tokens[0])) + "." + bin(Integer.parseInt(tokens[1])) + "." + bin(Integer.parseInt(tokens[2])) + "." + bin(Integer.parseInt(tokens[3]));
+        
+        String [] t = mascara.split("\\.");
+        
+        this.maskbin = bin(Integer.parseInt(t[0])) + "." + bin(Integer.parseInt(t[1])) + "." + bin(Integer.parseInt(t[2])) + "." + bin(Integer.parseInt(t[3]));
     }
 
+    public String getMaskbin() {
+        return maskbin;
+    }
+
+    public void setMaskbin(String maskbin) {
+        this.maskbin = maskbin;
+    }
+
+    
+    
     public String getIpbin() {
         return ipbin;
     }

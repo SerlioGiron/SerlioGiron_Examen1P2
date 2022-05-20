@@ -42,6 +42,7 @@ static ArrayList <PC> PCs = new ArrayList();
                     while (menu2!=0) 
                     {                        
                         System.out.println("");
+                        System.out.println("");
                         System.out.println("0. Salir\n"
                                 + "1. Agregar PC\n"
                                 + "2. Eliminar PC\n"
@@ -69,8 +70,9 @@ static ArrayList <PC> PCs = new ArrayList();
                                     System.out.print("Direccion IP: ");
                                     String ip = lea.next();
 
-                                    System.out.print("Mascara de red: ");
-                                    String mascara = lea.next();
+                                    String mascara = "255.255.";
+                                    System.out.print("Mascara de red: " + mascara);
+                                    mascara += lea.next();
 
                                     System.out.print("Hostname: ");
                                     String hostname = lea.next();
@@ -113,7 +115,8 @@ static ArrayList <PC> PCs = new ArrayList();
                                     //int ram, int storage, String tipostorage, boolean tarjetaGrafica, String ip, String mascara, String hostname
                                     Escritorio t =  new Escritorio(ram, storage, tipo, tarjeta, ip, mascara, hostname);
                                     
-                                    System.out.print("IP binario: " + t.getIpbin());
+                                    System.out.println("IP binario: " + t.getIpbin());
+                                    System.out.println("MASK binario: " + t.getMaskbin());
                                     
                                     PCs.add(t);
                                 }
@@ -122,8 +125,9 @@ static ArrayList <PC> PCs = new ArrayList();
                                     System.out.print("Direccion IP: ");
                                     String ip = lea.next();
 
-                                    System.out.print("Mascara de red: ");
-                                    String mascara = lea.next();
+                                    String mascara = "255.255.";
+                                    System.out.print("Mascara de red: " + mascara);
+                                    mascara += lea.next();
 
                                     System.out.print("Hostname: ");
                                     String hostname = lea.next();
@@ -213,6 +217,212 @@ static ArrayList <PC> PCs = new ArrayList();
                 }//fin case 2
             } // fin switch menu
         } //fin while menu
+    }
+    
+    public static String bin(int numero)
+    {
+        String temporal = "";
+        
+        if(numero == 0)
+        {
+            for (int i = 0; i < 8; i++) 
+            {
+                temporal += "0";
+            }
+        }
+        else if(numero == 1)
+        {
+            for (int i = 0; i < 7; i++) 
+            {
+                temporal += "0";
+            }
+            
+            temporal += "1";
+        }
+        else if (numero == 2 || numero == 3)
+        {
+            for (int i = 0; i < 6; i++) 
+            {
+                temporal += "0";
+            }
+            
+            //int division = numero / 2;
+            int cont = 8-1;
+            for (int i = 0; i < 2; i++) 
+            {
+                if(numero % 2 == 0)
+                {
+                    temporal += "0";
+                }
+                else
+                {
+                    temporal += "1";
+                }
+                
+                numero = numero / 2;
+                
+                cont--;
+            }
+            
+        }
+        else if (numero >= 4 && numero <= 7)
+        {
+            for (int i = 0; i < 5; i++) 
+            {
+                temporal += "0";
+            }
+            
+            //int division = numero / 2;
+            int cont = 8-1;
+            for (int i = 0; i < 3; i++) 
+            {
+                if(numero % 2 == 0)
+                {
+                    temporal += "0";
+                }
+                else
+                {
+                    temporal += "1";
+                }
+                
+                numero = numero / 2;
+                
+                cont--;
+            }
+            
+        }
+        else if (numero >= 8 && numero <= 15)
+        {
+            for (int i = 0; i < 4; i++) 
+            {
+                temporal += "0";
+            }
+            
+            //int division = numero / 2;
+            int cont = 8-1;
+            for (int i = 0; i < 4; i++) 
+            {
+                if(numero % 2 == 0)
+                {
+                    temporal += "0";
+                }
+                else
+                {
+                    temporal += "1";
+                }
+                
+                numero = numero / 2;
+                
+                cont--;
+            }
+            
+        }
+        else if (numero >= 16 && numero <= 31)
+        {
+            for (int i = 0; i < 3; i++) 
+            {
+                temporal += "0";
+            }
+            
+            //int division = numero / 2;
+            int cont = 8-1;
+            for (int i = 0; i < 5; i++) 
+            {
+                if(numero % 2 == 0)
+                {
+                    temporal += "0";
+                }
+                else
+                {
+                    temporal += "1";
+                }
+                
+                numero = numero / 2;
+                
+                cont--;
+            }
+            
+        }
+        else if (numero >= 32 && numero <= 63)
+        {
+            for (int i = 0; i < 2; i++) 
+            {
+                temporal += "0";
+            }
+            
+            //int division = numero / 2;
+            int cont = 8-1;
+            for (int i = 0; i < 6; i++) 
+            {
+                if(numero % 2 == 0)
+                {
+                    temporal += "0";
+                }
+                else
+                {
+                    temporal += "1";
+                }
+                
+                numero = numero / 2;
+                
+                cont--;
+            }
+            
+        }
+        else if (numero >= 64 && numero <= 127)
+        {
+            for (int i = 0; i < 1; i++) 
+            {
+                temporal += "0";
+            }
+            
+            //int division = numero / 2;
+            int cont = 8-1;
+            for (int i = 0; i < 7; i++) 
+            {
+                if(numero % 2 == 0)
+                {
+                    temporal += "0";
+                }
+                else
+                {
+                    temporal += "1";
+                }
+                
+                numero = numero / 2;
+                
+                cont--;
+            }
+            
+        }
+        else if (numero >= 128)
+        {
+            for (int i = 0; i < 0; i++) 
+            {
+                temporal += "0";
+            }
+            
+            //int division = numero / 2;
+            int cont = 8-1;
+            for (int i = 0; i < 8; i++) 
+            {
+                if(numero % 2 == 0)
+                {
+                    temporal += "0";
+                }
+                else
+                {
+                    temporal += "1";
+                }
+                
+                numero = numero / 2;
+                
+                cont--;
+            }
+            
+        }
+        
+        return temporal;
     }
     
     public static void imprimirarray(ArrayList a)
