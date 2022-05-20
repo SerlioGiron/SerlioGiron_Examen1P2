@@ -208,10 +208,25 @@ static ArrayList <PC> PCs = new ArrayList();
                         int select = lea.nextInt();
 
                         seleccionada = PCs.get(select);
-
-                        System.out.println("");
-                        System.out.print(seleccionada.getHostname() + "#");
-                        String p = lea.next();
+                        
+                        String p = "";
+                        
+                        while (!p.equals("exit")) 
+                        {                            
+                            System.out.println("");
+                            System.out.print(seleccionada.getHostname() + "#");
+                            p = lea.next();
+                            
+                            if (p.equals("show")) 
+                            {
+                                System.out.println("ip = " + seleccionada.getIp());
+                                System.out.println("mask = " + seleccionada.getMascara());
+                            }
+                            else if(p.equals("ping"))
+                            {
+                                
+                            }
+                        }
                     }
                     break;
                 }//fin case 2
