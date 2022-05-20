@@ -112,6 +112,9 @@ static ArrayList <PC> PCs = new ArrayList();
                                     
                                     //int ram, int storage, String tipostorage, boolean tarjetaGrafica, String ip, String mascara, String hostname
                                     Escritorio t =  new Escritorio(ram, storage, tipo, tarjeta, ip, mascara, hostname);
+                                    
+                                    System.out.print("IP binario: " + t.getIpbin());
+                                    
                                     PCs.add(t);
                                 }
                                 else if (menu3 == 2) 
