@@ -379,18 +379,18 @@ static ArrayList <PC> PCs = new ArrayList();
                                             String ping2;
                                             ping2 = ipbinarioselected2.substring(0, cont);
                                             
-                                            System.out.println("ping: " + ping);
-                                            System.out.println("ping2: " + ping2);
+                                            //System.out.println("ping: " + ping);
+                                            //System.out.println("ping2: " + ping2);
                                             
-                                            if (ping.equals(ping2)) 
+                                            if (ping2.equals(ping)) 
                                             {
                                                 cadenafinal = "ping exitoso";
-                                                break;
+                                                //break;
                                             }
                                             else
                                             {
                                                 cadenafinal = "fallido";
-                                                break;
+                                                //break;
                                             }
                                             //break;
                                         }//fin del if
