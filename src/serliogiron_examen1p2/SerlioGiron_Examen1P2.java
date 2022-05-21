@@ -78,6 +78,14 @@ static ArrayList <PC> PCs = new ArrayList();
                                     
                                     String [] mask = mascara.split("\\.");
                                     
+                                    if (!mask[2].equals("255")) 
+                                        {
+                                            mascara = "255.255."+ mask[2] +".0";
+                                        }
+                                        else{
+                                            mascara = mascara;
+                                        }
+                                    
                                     while ((!(mask[2]).equals("255")  &&  
                                             !(mask[2]).equals("254")  &&  
                                             !(mask[2]).equals("252")  && 
@@ -97,7 +105,7 @@ static ArrayList <PC> PCs = new ArrayList();
                                             !(mask[3]).equals("192")  &&
                                             !(mask[3]).equals("128")  &&
                                             !(mask[3]).equals("0")))
-                                    {                                        
+                                    {
                                         System.out.println("");
                                         System.out.println("Ingrese un numero valido");
                                         System.out.println("");
@@ -107,6 +115,14 @@ static ArrayList <PC> PCs = new ArrayList();
                                         mascara += lea.next();
                                         
                                         mask = mascara.split("\\.");
+                                        
+                                        if (!mask[2].equals("255")) 
+                                        {
+                                            mascara = "255.255."+ mask[2] +".0";
+                                        }
+                                        else{
+                                            mascara = mascara;
+                                        }
                                     }
 
                                     System.out.print("Hostname: ");
@@ -168,7 +184,15 @@ static ArrayList <PC> PCs = new ArrayList();
                                     
                                     String [] mask = mascara.split("\\.");
                                     
-                                    while (!(mask[2]).equals("255")   &&  
+                                    if (!mask[2].equals("255")) 
+                                        {
+                                            mascara = "255.255."+ mask[2] +".0";
+                                        }
+                                        else{
+                                            mascara = mascara;
+                                        }
+                                    
+                                    while ((!(mask[2]).equals("255")  &&  
                                             !(mask[2]).equals("254")  &&  
                                             !(mask[2]).equals("252")  && 
                                             !(mask[2]).equals("248")  && 
@@ -176,9 +200,9 @@ static ArrayList <PC> PCs = new ArrayList();
                                             !(mask[2]).equals("224")  &&
                                             !(mask[2]).equals("192")  &&
                                             !(mask[2]).equals("128")  &&
-                                            !(mask[2]).equals("0")    &&
+                                            !(mask[2]).equals("0")) ||
                                             
-                                            !(mask[3]).equals("255")  &&
+                                            (!(mask[3]).equals("255") &&
                                             !(mask[3]).equals("254")  &&  
                                             !(mask[3]).equals("252")  && 
                                             !(mask[3]).equals("248")  && 
@@ -186,7 +210,7 @@ static ArrayList <PC> PCs = new ArrayList();
                                             !(mask[3]).equals("224")  &&
                                             !(mask[3]).equals("192")  &&
                                             !(mask[3]).equals("128")  &&
-                                            !(mask[3]).equals("0")    ) 
+                                            !(mask[3]).equals("0")))
                                     {                                        
                                         System.out.println("");
                                         System.out.println("Ingrese numeros validos");
@@ -197,6 +221,15 @@ static ArrayList <PC> PCs = new ArrayList();
                                         mascara += lea.next();
                                         
                                         mask = mascara.split("\\.");
+                                        
+                                        if (!mask[2].equals("255")) 
+                                        {
+                                            mascara = "255.255."+ mask[2] +".0";
+                                        }
+                                        else
+                                        {
+                                            mascara = mascara;
+                                        }
                                     }
 
                                     System.out.print("Hostname: ");
@@ -236,6 +269,9 @@ static ArrayList <PC> PCs = new ArrayList();
                                     //String marca, String pantalla, boolean RGB, String ip, String mascara, String hostname
                                     Laptop t = new Laptop(marca, pantalla, tarjeta, ip, mascara, hostname);
                                     PCs.add(t);
+                                    
+                                    System.out.println("IP binario: " + t.getIpbin());
+                                    System.out.println("MASK binario: " + t.getMaskbin());
                                 }
                                 else
                                 {
@@ -282,7 +318,7 @@ static ArrayList <PC> PCs = new ArrayList();
                         String p = "";
                         
                         while (!p.equals("exit")) 
-                        {                            
+                        {
                             System.out.println("");
                             System.out.print(seleccionada.getHostname() + "#");
                             p = lea.next();
@@ -311,7 +347,12 @@ static ArrayList <PC> PCs = new ArrayList();
                                             cont++;
                                         }
                                     }
-                                }
+                                    
+                                    String ping;
+                                    ping = maskbinarioselected.substring(0, cont);
+                                    
+                                    String ip2 = tok[1];
+                                }//termina el piiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiing
                             }
                         }
                     }
