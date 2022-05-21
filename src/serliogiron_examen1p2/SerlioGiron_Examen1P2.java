@@ -338,7 +338,6 @@ static ArrayList <PC> PCs = new ArrayList();
                                 {
                                     String maskbinarioselected = main.getMaskbin();
                                     
-                                    String ipbinarioselected = main.getIpbin();
                                     
                                     int cont = 0;
                                     
@@ -350,8 +349,10 @@ static ArrayList <PC> PCs = new ArrayList();
                                         }
                                     }// saca el contador
                                     
+                                    String ipmainbinario = main.getIpbin();
+                                    
                                     String ping;
-                                    ping = ipbinarioselected.substring(0, cont);
+                                    ping = ipmainbinario.substring(0, cont);
                                     
                                     String ip2 = tok[1];
                                     
@@ -383,20 +384,24 @@ static ArrayList <PC> PCs = new ArrayList();
                                             
                                             if (ping.equals(ping2)) 
                                             {
-                                                System.out.println("ping exitoso");;
+                                                cadenafinal = "ping exitoso";
+                                                break;
                                             }
                                             else
                                             {
-                                                System.out.println("fallido");;
+                                                cadenafinal = "fallido";
+                                                break;
                                             }
-                                            
-                                            break;
+                                            //break;
                                         }//fin del if
                                         else
                                         {
-                                            System.out.println("inalcanzable");;
+                                            cadenafinal = "inalcanzable";
+                                            //break;
                                         }
                                     }//fin del for
+                                    
+                                    System.out.println(cadenafinal);
                                 }//termina el piiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiing
                             }
                         }

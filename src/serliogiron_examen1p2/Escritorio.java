@@ -33,7 +33,7 @@ public class Escritorio extends PC{
     
     @Override
     public String toString() {
-        return "Escritorio{" + "ram=" + ram + ", storage=" + storage + ", tipostorage=" + tipostorage + ", tarjetaGrafica=" + tarjetaGrafica + '}';
+        return "nombre: " + super.getHostname() + "Escritorio{" + "ram=" + ram + ", storage=" + storage + ", tipostorage=" + tipostorage + ", tarjetaGrafica=" + tarjetaGrafica + '}';
     }
 
     

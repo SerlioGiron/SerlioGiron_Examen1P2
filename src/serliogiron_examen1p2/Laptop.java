@@ -31,7 +31,7 @@ public class Laptop extends PC{
 
     @Override
     public String toString() {
-        return "Laptop{" + "marca=" + marca + ", pantalla=" + pantalla + ", RGB=" + RGB + '}';
+        return "nombre: " + super.getHostname() + "Laptop{" + "marca=" + marca + ", pantalla=" + pantalla + ", RGB=" + RGB + '}';
     }
     
     
