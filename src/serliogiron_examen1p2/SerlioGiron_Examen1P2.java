@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class SerlioGiron_Examen1P2 {
 static Scanner lea = new Scanner(System.in);
 static Random random = new Random();
-static PC seleccionada = new PC();
+static PC main = new PC();
 
 static ArrayList <PC> PCs = new ArrayList();
     /**
@@ -313,22 +313,22 @@ static ArrayList <PC> PCs = new ArrayList();
                         System.out.print("Ingrese la PC a la que desea entrar: ");
                         int select = lea.nextInt();
 
-                        seleccionada = PCs.get(select);
+                        main = PCs.get(select);
                         
                         String p = "";
                         
                         while (!p.equals("exit")) 
                         {
                             System.out.println("");
-                            System.out.print(seleccionada.getHostname() + "#");
+                            System.out.print(main.getHostname() + "#");
                             p = lea.next();
                             
                            
                             
                             if (p.equals("show")) 
                             {
-                                System.out.println("ip = " + seleccionada.getIp());
-                                System.out.println("mask = " + seleccionada.getMascara());
+                                System.out.println("ip = " + main.getIp());
+                                System.out.println("mask = " + main.getMascara());
                             }
                             else 
                             {
@@ -336,7 +336,9 @@ static ArrayList <PC> PCs = new ArrayList();
                                 
                                 if (tok[0].equals("ping")) 
                                 {
-                                    String maskbinarioselected = seleccionada.getMaskbin();
+                                    String maskbinarioselected = main.getMaskbin();
+                                    
+                                    String ipbinarioselected = main.getIpbin();
                                     
                                     int cont = 0;
                                     
@@ -346,12 +348,55 @@ static ArrayList <PC> PCs = new ArrayList();
                                         {
                                             cont++;
                                         }
-                                    }
+                                    }// saca el contador
                                     
                                     String ping;
-                                    ping = maskbinarioselected.substring(0, cont);
+                                    ping = ipbinarioselected.substring(0, cont);
                                     
                                     String ip2 = tok[1];
+                                    
+                                    System.out.println("ip2: " + ip2);
+                                    
+                                    //boolean k = false;
+                                    
+                                    String cadenafinal = "";
+                                    
+                                    for (int i = 0; i < PCs.size(); i++) 
+                                    {
+                                        PC seleccionado = new PC();
+                                        
+                                        seleccionado = PCs.get(i);
+                                        
+                                        System.out.println("seleccionado ip: " + seleccionado.getIp());
+                                        
+                                        if (ip2.equals(seleccionado.getIp())) 
+                                        {
+                                            //k = true;
+                                            
+                                            String ipbinarioselected2 = seleccionado.getIpbin();
+                                            
+                                            String ping2;
+                                            ping2 = ipbinarioselected2.substring(0, cont);
+                                            
+                                            System.out.println("ping: " + ping);
+                                            System.out.println("ping2: " + ping2);
+                                            
+                                            if (ping.equals(ping2)) 
+                                            {
+                                                System.out.println("ping exitoso");;
+                                            }
+                                            else
+                                            {
+                                                System.out.println("fallido");;
+                                            }
+                                            
+                                            break;
+                                        }//fin del if
+                                        else
+                                        {
+                                            System.out.println("inalcanzable");;
+                                        }
+                                    }//fin del for
                                 }//termina el piiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiing
                             }
                         }
